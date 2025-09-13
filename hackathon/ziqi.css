@@ -1,0 +1,76 @@
+:root {
+    --bg: linear-gradient(180deg, #cfeccb, #eaefda);
+    --accent: #2f8f4a;
+    --muted: #7a9776;
+    --card: rgba(255,255,255,0.6);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin:0; font-family: Inter, Arial, sans-serif; }
+body { background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.app {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    padding: 24px;
+    height: 100vh;
+}
+
+.left-pane {
+    background: var(--card);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.left-pane h1 { margin:0; font-size:18px; color:var(--accent);}
+.search-box { width:100%; padding:8px; margin:8px 0; border-radius:8px; border:1px solid #ccc; font-size:14px; }
+
+.plant-list { list-style:none; padding:0; margin:8px 0; }
+.plant-item { padding:12px; margin-bottom:8px; border-radius:8px; cursor:pointer; transition:0.3s; }
+.plant-item:hover { background: rgba(255,255,255,0.08);}
+.plant-item.active { background:#d1e7dd; font-weight:600; }
+
+.center-pane { padding:18px; display:flex; flex-direction:column; }
+.top-controls { display:flex; justify-content:space-between; align-items:center; }
+.plant-name { font-size:22px; font-weight:700; color:var(--accent); }
+
+.connect-controls .btn {
+    padding:8px 12px;
+    border-radius:9px;
+    border:0;
+    cursor:pointer;
+    background:var(--accent);
+    color:white;
+    font-size:14px;
+}
+
+.plant-dashboard { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; }
+
+.card-container {
+    flex:1;
+    min-width:120px;
+    padding:16px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.card-label { font-size:16px; font-weight:600; color:var(--muted); margin-bottom:8px; }
+.card-emoji { font-size:32px; }
+
+.card-hot { background:#ffd6d6; }
+.card-cold { background:#d6f0ff; }
+.card-wet { background:#d6fff0; }
+.card-dry { background:#fff4d6; }
+.card-bright { background:#fff6d6; }
+.card-dark { background:#d6d6ff; }
+.card-normal { background:rgba(255,255,255,0.7); }
+
+@media(max-width:900px){
+    .app { grid-template-columns:1fr; grid-template-rows:auto 1fr; }
+}
